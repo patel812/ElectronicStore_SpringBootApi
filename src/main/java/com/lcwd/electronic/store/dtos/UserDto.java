@@ -1,8 +1,10 @@
 package com.lcwd.electronic.store.dtos;
 
+import com.lcwd.electronic.store.validate.imageNameValid;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
@@ -19,7 +21,8 @@ public class UserDto {
     @Size(min = 3, max = 15, message = "Invalid Name!!")
     private String name;
 
-    @Email(message = "Invalid User Email!!")
+  //  @Email(message = "Invalid User Email!!")
+    @Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Invalid User Email")
     @NotBlank(message = "Email is not blank!!")
     private String email;
 
@@ -33,8 +36,11 @@ public class UserDto {
     private String about;
 
      //@Pattern
+
+
      //Custom Validator
 
+    @imageNameValid
     private String imageName;
 
 }
