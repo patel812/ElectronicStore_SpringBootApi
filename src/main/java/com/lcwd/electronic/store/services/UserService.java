@@ -19,7 +19,7 @@ public interface UserService {
 
 
     //Get All users
-    List<UserDto> getAllUser(int pageNumber, int pageSize);
+    List<UserDto> getAllUser(int pageNumber, int pageSize, String sortBy, String sortDir);
 
 
     //Get Single User by Id
